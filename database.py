@@ -4,10 +4,10 @@ from mysql.connector import errorcode
 # Dados para conexão com banco
 def connect_db():
     return mysql.connector.connect(
-        host='uat.nutrace.com.br',
-        database='nutrace_banco',
-        user='nutrace_banco',
-        password='S9yHn5gCe0n1tXa'
+        host='localhost',
+        database='database',
+        user='root',
+        password=''
     )
 
 def query_db(query):
