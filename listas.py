@@ -9,7 +9,7 @@ def dado_regiao(data):
 
 # Safras
 def dado_safra(data):
-    safra = query_db(f"select id from safras where nome like '%{data}%' and ativo = 1 and excluido = 1 limit 1")
+    safra = query_db(f"select id from safras where nome = '{data}' and ativo = 1 and excluido = 1 limit 1")
     if safra == None:
         safra = 99
     return safra

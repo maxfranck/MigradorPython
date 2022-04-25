@@ -4,7 +4,7 @@ import numpy as np
 import listas
 
 # def pega_planilha(planilha):
-planilha = pd.read_excel('planilha.xlsx',
+planilha = pd.read_excel('planilha/planilha.xlsx',
                         parse_dates=['Vencimento'],
                         date_parser=lambda x: pd.to_datetime(x, format='%Y-%m-%d %I:%M:%S')
                         )
@@ -25,7 +25,7 @@ for row in planilha.itertuples():
     novo_nome = novo_nome.replace(" Natural", "")
     if novo_nome == 'Bica':
         novo_nome = 'Bica Forte'
-
+    
     #Modificando formato das datas
     now = datetime.now()
     hoje = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -69,7 +69,7 @@ for row in planilha.itertuples():
         # ["certificados,", f'{None},'],
         ["subregiao,", f"'{row[5]}',"],
         ["regional,", f"'{row[6]}',"],
-        ["cod_cli,", f'{row[9]},'],
+        ["cod_cli,", f"'{row[9]}',"],
         ["pbarter,", f"'{row[2]}',"],
         ["preco_base,", f'{row[20]},'],
         ["preco_carga,", f'{row[19]},'],
@@ -136,7 +136,4 @@ for row in planilha.itertuples():
     #Imprime os valores
     for x in dados:
         print(x[1], end=' ', file=script)
-    print(');', file=script)
-    
-    # script.writelines(texto)
-    
+    print(');', file=script)   
